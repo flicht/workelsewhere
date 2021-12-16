@@ -14,7 +14,11 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <h1> Work Elsewhere</h1>
+        <h1>
+          <Link to="/">
+          Work Elsewhere
+          </Link> 
+          </h1>
         <p>Pick your home city</p>
         {/* <Link to='/'>Home </Link>
         <Link to='/search'> Search</Link> */}
@@ -22,7 +26,7 @@ function App() {
       <hr />      
       <Routes>
           <Route path="/search/:queryText" element={<SearchResults setHomeCity={setHomeCity} />} />
-          { homeCity && <Route path="/city/:geonameID" element={<HomeCity city={homeCity} />} /> }
+          <Route path="/city/:geonameID" element={<HomeCity />} />
         </Routes>
       
       </Router>
