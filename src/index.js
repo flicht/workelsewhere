@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
+    <link rel="stylesheet" href="css/pico.min.css" />
     <App />
   </React.StrictMode>,
   document.getElementById('root')
