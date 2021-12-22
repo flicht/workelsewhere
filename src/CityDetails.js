@@ -80,7 +80,6 @@ export default function CityDetails(props) {
         <div>
           <h2>{`${homeCity.full_name}`}</h2>
           Work Elsewhere Score:
-          <span style={{ color: "red" }}>
             <ProgressBar
               bgColor="#e1a861"
               completed={data._embedded[
@@ -88,7 +87,9 @@ export default function CityDetails(props) {
               ].teleport_city_score.toFixed(0)}
               maxCompleted={100}
             />
-          </span>
+        </div>
+        <div>
+            <img style={{ width: "30vw", paddingTop:"20px" }} src={imageLink} />
         </div>
       </>
     ) : (
@@ -109,7 +110,7 @@ export default function CityDetails(props) {
             <p>Timezones: {homeCity._links["city:timezone"].name}</p>
             <p>Urban Area: {urbanArea}</p>
           </div>
-          <img style={{ width: "100vh" }} src={imageLink} />
+          <img style={{ width: "50vw" }} src={imageLink} />
         </>
       ) : (
         <p>Loading...</p>
@@ -133,7 +134,6 @@ export default function CityDetails(props) {
                   </p>
                 ))}
                 Work Elsewhere Score:
-                <span style={{ color: "red" }}>
                   <ProgressBar
                     bgColor="#e1a861"
                     completed={data._embedded[
@@ -141,7 +141,6 @@ export default function CityDetails(props) {
                     ].teleport_city_score.toFixed(0)}
                     maxCompleted={100}
                   />
-                </span>
               </>
             )}
           </div>

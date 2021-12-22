@@ -1,5 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
+import CityDetails from "./CityDetails"
 
 export default function NewCities(props) {
 

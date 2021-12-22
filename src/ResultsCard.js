@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
+import SetAsHomeButton from "./SetAsHomeButton";
 
 export default function ResultsCard(props) {
 
@@ -17,7 +18,7 @@ export default function ResultsCard(props) {
                 {city.matching_full_name}
             </Link>
             </h2>
-            <button onClick={ () => handleButtonClick(city) }>Pick as home</button>
+            <SetAsHomeButton geonameID={geoname_id} />
             <p>
                Population: {city._embedded['city:item'].population}
             </p>

@@ -13,6 +13,7 @@ export default function SearchForm (props) {
     const handleFormSubmit = (ev) => {
         ev.preventDefault()
         navigate(`/search/${inputText}`)
+        setInputText('')
     }
 
 
@@ -20,7 +21,7 @@ export default function SearchForm (props) {
 
     return (
         <form onSubmit={ handleFormSubmit }>
-            <input onChange={ handleInputChange } type='text' placeholder='Find a city'/>
+            <input onChange={ handleInputChange } type='text' placeholder='Find a city' value={inputText}/>
             <button>Search</button>
         </form>
     )

@@ -1,3 +1,5 @@
+import { faHome } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -14,11 +16,14 @@ export default function CityFinder(props) {
 
   return (
     <>
-      <div style={{ width: "30%", marginLeft: "30px"}}>
+      <div style={{ display: "flex", marginLeft: "30px"}}>
+        <div style={{flexGrow:1}}>
+      <FontAwesomeIcon icon={faHome} size="2x"/>
         <CityDetails short={true} />
-      </div>
-      <div style={{width:"70%", float:"right"}}>
+        </div>
+      <div style={{flexGrow:4}}>
         <NewCities />
+      </div>
       </div>
     </>
   );
