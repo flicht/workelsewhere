@@ -29,7 +29,7 @@ export default function CompareCities(props) {
                 {setCity2(res.data)}
                 )
             .catch(err => console.log(err))
-        }
+        }, [params.city1, params.city2]
     ) 
 
 
