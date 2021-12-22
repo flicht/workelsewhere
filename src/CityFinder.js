@@ -10,8 +10,10 @@ export default function CityFinder(props) {
   const [homeCity, setHomeCity] = useState(null);
   const [isHomeCityLoaded, setIsHomeCityLoaded] = useState(null);
   const [urbanArea, setUrbanArea] = useState(null);
+  const [homeSlug, setHomeSlug] = useState(null)
 
   const params = useParams();
+
 
 
   return (
@@ -19,10 +21,11 @@ export default function CityFinder(props) {
       <div style={{ display: "flex", marginLeft: "30px"}}>
         <div style={{flexGrow:1}}>
       <FontAwesomeIcon icon={faHome} size="2x"/>
-        <CityDetails short={true} />
+        <CityDetails short={true} setSlug={setHomeSlug} />
         </div>
       <div style={{flexGrow:4}}>
-        <NewCities />
+        Pick a city to compare to: 
+        <NewCities homeSlug={homeSlug}/>
       </div>
       </div>
     </>
