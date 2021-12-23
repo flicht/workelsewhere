@@ -13,48 +13,46 @@ export default function ComparedCityDetails(props) {
   return (
     <div marginRight>
       <h1>{city.name}</h1>
-      {props.compare && <p>
+      {props.compare && (
+        <p>
           <SetAsHomeButton />
-          </p>}
-        { city.summary }
-        <div></div>
+        </p>
+      )}
+      {city.summary}
+      <div></div>
       <img
         style={{ width: "100%", borderRadius: "5px" }}
         src={city.image.web}
       />
 
       <div>
-
-      {city.mayor && <p>Mayor: {city.mayor}</p>}
-      <p>Work Elsewhere Score</p>
-      <div style={{ width: 100, height: 100, margin: "auto" }}>
-        <CircularProgressbar
-          value={city.workelsewhereScore}
-          text={`${city.workelsewhereScore.toFixed(0)}`}
+        {city.mayor && <p>Mayor: {city.mayor}</p>}
+        <p>Work Elsewhere Score</p>
+        <div style={{ width: 100, height: 100, margin: "auto" }}>
+          <CircularProgressbar
+            value={city.workelsewhereScore}
+            text={`${city.workelsewhereScore.toFixed(0)}`}
           />
-      </div>
-      <div>
-        {city.scores.map((item) => (
+        </div>
+        <div>
+          {city.scores.map((item) => (
             <p key={item.name}>
-            {item.name}
-            <ProgressBar
-              bgColor="#E76F51"
-              completed={item.score}
-              maxCompleted={10}
+              {item.name}
+              <ProgressBar
+                bgColor="#E76F51"
+                completed={item.score}
+                maxCompleted={10}
               />
-          </p>
-        ))}
-      </div>
-      <div>
-        <h3>Weather</h3>
-        <p>Average High: {city.weather["WEATHER-AVERAGE-HIGH"]}°C</p>
-        <p>Average Low: {city.weather["WEATHER-AVERAGE-LOW"]}°C</p>
-      </div>
-      <div>
-          <h3>
-              Cost of Coffee: 
-              ${city.consumerPrices["COST-CAPPUCCINO"]}
-              </h3>
+            </p>
+          ))}
+        </div>
+        <div>
+          <h3>Weather</h3>
+          <p>Average High: {city.weather["WEATHER-AVERAGE-HIGH"]}°C</p>
+          <p>Average Low: {city.weather["WEATHER-AVERAGE-LOW"]}°C</p>
+        </div>
+        <div>
+          <h3>Cost of Coffee: ${city.consumerPrices["COST-CAPPUCCINO"]}</h3>
         </div>
       </div>
     </div>

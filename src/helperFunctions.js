@@ -12,39 +12,36 @@ const deconstructScores = (categories) => {
 };
 
 const deconstructWeather = (weather) => {
-    const outputWeather = {}
+  const outputWeather = {};
 
-    weather.map(w => {
-        const valueAccess = w.type + '_value'
-        outputWeather[w.id] = w[valueAccess]}
-         )
+  weather.map((w) => {
+    const valueAccess = w.type + "_value";
+    outputWeather[w.id] = w[valueAccess];
+  });
 
-    return outputWeather
-}
+  return outputWeather;
+};
 
 const deconstructPrices = (prices) => {
-    const outputPrices = {}
+  const outputPrices = {};
 
-    prices.map(item => {
-        const valueAccess = item.type + '_value'
-        outputPrices[item.id] = item[valueAccess]}
-         )
+  prices.map((item) => {
+    const valueAccess = item.type + "_value";
+    outputPrices[item.id] = item[valueAccess];
+  });
 
-    return outputPrices
-}
+  return outputPrices;
+};
 
-const urlToSlug = (url, pos=2) => {
+const urlToSlug = (url, pos = 2) => {
+  if (url) {
+    const parts = url.split("/");
+    const el = parts[parts.length - pos];
+    const result = el.replace("slug:", "");
 
-    if (url) {    
-        const parts = url.split("/")
-        const el = parts[parts.length - pos]
-        const result = el.replace("slug:", "")
-        
-        return result
-    }
-}
-
-
+    return result;
+  }
+};
 
 const condenseUrbanArea = (details) => {
   const cityDetails = {};
@@ -53,15 +50,23 @@ const condenseUrbanArea = (details) => {
   cityDetails.name = details.name;
   cityDetails.slug = details.slug;
   cityDetails.mayor = details.mayor;
-  cityDetails.summary = details._embedded["ua:scores"].summary.replace(/<\/?[^>]+(>|$)/g, "");
+  cityDetails.summary = details._embedded["ua:scores"].summary.replace(
+    /<\/?[^>]+(>|$)/g,
+    ""
+  );
   cityDetails.workelsewhereScore =
     details._embedded["ua:scores"].teleport_city_score;
   cityDetails.continent = details.continent;
   cityDetails.image = details._embedded["ua:images"].photos[0].image;
-  cityDetails.scores = deconstructScores(details._embedded["ua:scores"].categories);
-  cityDetails.weather = deconstructWeather(details._embedded["ua:details"].categories[2].data);
-  cityDetails.consumerPrices = 
-    deconstructPrices(details._embedded["ua:details"].categories[3].data);
+  cityDetails.scores = deconstructScores(
+    details._embedded["ua:scores"].categories
+  );
+  cityDetails.weather = deconstructWeather(
+    details._embedded["ua:details"].categories[2].data
+  );
+  cityDetails.consumerPrices = deconstructPrices(
+    details._embedded["ua:details"].categories[3].data
+  );
 
   return cityDetails;
 };
@@ -76,6 +81,5 @@ const selectedCategories = [
   "Environmental Quality",
   "Business Freedom",
 ];
-
 
 export { condenseUrbanArea, deconstructScores, urlToSlug };
