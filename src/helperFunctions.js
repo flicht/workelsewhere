@@ -53,7 +53,7 @@ const condenseUrbanArea = (details) => {
   cityDetails.name = details.name;
   cityDetails.slug = details.slug;
   cityDetails.mayor = details.mayor;
-  cityDetails.summary = details._embedded["ua:scores"].summary;
+  cityDetails.summary = details._embedded["ua:scores"].summary.replace(/<\/?[^>]+(>|$)/g, "");
   cityDetails.workelsewhereScore =
     details._embedded["ua:scores"].teleport_city_score;
   cityDetails.continent = details.continent;

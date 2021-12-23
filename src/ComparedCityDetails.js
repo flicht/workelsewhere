@@ -16,10 +16,13 @@ export default function ComparedCityDetails(props) {
       {props.compare && <p>
           <SetAsHomeButton />
           </p>}
+        { city.summary }
+        <div></div>
       <img
         style={{ width: "100%", borderRadius: "5px" }}
         src={city.image.web}
       />
+
 
       {city.mayor && <p>Mayor: {city.mayor}</p>}
       <p>Work Elsewhere Score</p>
@@ -34,7 +37,7 @@ export default function ComparedCityDetails(props) {
           <p key={item.name}>
             {item.name}
             <ProgressBar
-              bgColor="#5092d3"
+              bgColor="#E76F51"
               completed={item.score}
               maxCompleted={10}
             />
