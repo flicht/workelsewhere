@@ -8,35 +8,34 @@ import BrowseTopCities from "./BrowseTopCities";
 import TopCities from "./TopCities";
 import CityFinder from "./CityFinder";
 import CompareCities from "./CompareCities";
+import CityDetailsNA from "./CityDetailsNA";
+
 
 function App() {
   const [homeCity, setHomeCity] = useState(null);
 
 
   return (
-    <Router>
       <div className="App">
-        <h1>
+    <Router>
+        <h1 className="title">
           <Link to="/">Work Elsewhere</Link>
         </h1>
-        <p>Search for a city</p>
         <SearchForm />
-        <p>
-          Or <BrowseTopCities />
-        </p>
         <hr />
         <Routes>
           <Route
             path="/search/:queryText"
             element={<SearchResults setHomeCity={setHomeCity} />}
           />
-          <Route path="/city/:geonameID" element={<CityDetails />} />
-          <Route path="/city-search/:geonameID" element={<CityFinder homeCity={homeCity} />} />
+          <Route path="/city/:slug" element={<CityDetails />} />
+          <Route path="/city/na/:geonameID" element={<CityDetailsNA />} />
+          <Route path="/city-search/:slug" element={<CityFinder homeCity={homeCity} />} />
           <Route path="/top-cities" element={<TopCities />} />
           <Route path="/compare/:city1/:city2" element={<CompareCities />} />
         </Routes>
-      </div>
     </Router>
+      </div>
   );
 }
 

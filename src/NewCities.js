@@ -29,8 +29,6 @@ export default function NewCities(props) {
     const parts = selectedValue.split("/")
     const el = parts[parts.length -2]
     const result = el.replace("slug:", "")
-    console.log(selectedValue);
-    console.log(`parts ${parts}, el:  ${el}, result: ${result}`);
 
 
     navigate(`/compare/${props.homeSlug}/${result}`)
@@ -38,17 +36,17 @@ export default function NewCities(props) {
   };
 
   return (
-    <div>
+    <div className="select">
       {isLoaded && (
         <form onSubmit={handleSubmit}>
           <label>
-            <select value={selectedValue} onChange={handleSelectChange}>
+            <select  value={selectedValue} onChange={handleSelectChange}>
               {newCities._links["ua:item"].map((city) => (
                 <option value={`${city.href}`}>{city.name}</option>
               ))}
             </select>
           </label>
-          <input type="submit" value="Compare" />
+          <input className="button-4" type="submit" value="Compare" />
         </form>
       )}
     </div>

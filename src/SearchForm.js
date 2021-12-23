@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import "./App.css";
 
 export default function SearchForm (props) {
 
@@ -20,9 +21,11 @@ export default function SearchForm (props) {
 
 
     return (
-        <form onSubmit={ handleFormSubmit }>
-            <input onChange={ handleInputChange } type='text' placeholder='Find a city' value={inputText}/>
-            <button>Search</button>
+        <form onSubmit={ handleFormSubmit } >
+            <input onChange={ handleInputChange } type='text' placeholder='Enter a city' value={inputText}/>
+            {" "}
+
+            <button className="button-4">Search</button>
         </form>
     )
 }

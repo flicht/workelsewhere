@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+document.body.style = 'background: #F2EFEA;';
+
 ReactDOM.render(
   <React.StrictMode>
     <link rel="stylesheet" href="css/pico.min.css" />

@@ -3,6 +3,7 @@ import { CircularProgressbar } from "react-circular-progressbar";
 import ProgressBar from "@ramonak/react-progress-bar";
 
 import "react-circular-progressbar/dist/styles.css";
+import SetAsHomeButton from "./SetAsHomeButton";
 
 export default function ComparedCityDetails(props) {
   const city = condenseUrbanArea(props.cityData);
@@ -12,10 +13,15 @@ export default function ComparedCityDetails(props) {
   return (
     <div marginRight>
       <h1>{city.name}</h1>
+      {props.compare && <p>
+          <SetAsHomeButton />
+          </p>}
       <img
         style={{ width: "100%", borderRadius: "5px" }}
         src={city.image.web}
       />
+
+      {city.mayor && <p>Mayor: {city.mayor}</p>}
       <p>Work Elsewhere Score</p>
       <div style={{ width: 100, height: 100, margin: "auto" }}>
         <CircularProgressbar

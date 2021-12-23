@@ -33,6 +33,17 @@ const deconstructPrices = (prices) => {
     return outputPrices
 }
 
+const urlToSlug = (url, pos=2) => {
+
+    if (url) {    
+        const parts = url.split("/")
+        const el = parts[parts.length - pos]
+        const result = el.replace("slug:", "")
+        
+        return result
+    }
+}
+
 
 
 const condenseUrbanArea = (details) => {
@@ -67,4 +78,4 @@ const selectedCategories = [
 ];
 
 
-export { condenseUrbanArea, deconstructScores };
+export { condenseUrbanArea, deconstructScores, urlToSlug };

@@ -18,14 +18,14 @@ export default function CityFinder(props) {
 
   return (
     <>
-      <div style={{ display: "flex", marginLeft: "30px"}}>
+      <div style={{ display: "flex", marginLeft: "30px", width:"70%"}}>
         <div style={{flexGrow:1}}>
       <FontAwesomeIcon icon={faHome} size="2x"/>
-        <CityDetails short={true} setSlug={setHomeSlug} />
+        <CityDetails short={true}/>
         </div>
-      <div style={{flexGrow:4}}>
+      <div style={{flexGrow:4, marginLeft:"300px"}}>
         Pick a city to compare to: 
-        <NewCities homeSlug={homeSlug}/>
+        <NewCities homeSlug={params.slug}/>
       </div>
       </div>
     </>
