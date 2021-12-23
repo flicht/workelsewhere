@@ -19,11 +19,10 @@ export default function ComparedCityDetails(props) {
         </p>
       )}
       {city.summary}
-      <div></div>
-      <img
+          <img
         style={{ width: "100%", borderRadius: "5px" }}
         src={city.image.web}
-      />
+        />
 
       <div>
         {city.mayor && <p>Mayor: {city.mayor}</p>}

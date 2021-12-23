@@ -2,26 +2,14 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ComparedCityDetails from "./ComparedCityDetails";
+import { useCityData } from "./hooks";
 
 const TELEPORT_BASE_URL = "https://api.teleport.org/api/urban_areas/slug:";
 
 export default function CityDetails(props) {
-  const [city, setCity] = useState(null);
-  const [isLoaded, setIsLoaded] = useState(false);
   const params = useParams();
 
-  useEffect(() => {
-    axios
-      .get(
-        `${TELEPORT_BASE_URL}${params.slug}/?embed={ua:images,ua:scores,ua:details}`
-      )
-      .then((res) => {
-        setCity(res.data);
-        setIsLoaded(true);
-      })
-
-      .catch((err) => console.log(err));
-  }, []);
+  const [city, isLoaded, err1] = useCityData(params.slug);
 
   if (props.short) {
     return (
