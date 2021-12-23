@@ -23,6 +23,7 @@ export default function ComparedCityDetails(props) {
         src={city.image.web}
       />
 
+      <div>
 
       {city.mayor && <p>Mayor: {city.mayor}</p>}
       <p>Work Elsewhere Score</p>
@@ -30,17 +31,17 @@ export default function ComparedCityDetails(props) {
         <CircularProgressbar
           value={city.workelsewhereScore}
           text={`${city.workelsewhereScore.toFixed(0)}`}
-        />
+          />
       </div>
       <div>
         {city.scores.map((item) => (
-          <p key={item.name}>
+            <p key={item.name}>
             {item.name}
             <ProgressBar
               bgColor="#E76F51"
               completed={item.score}
               maxCompleted={10}
-            />
+              />
           </p>
         ))}
       </div>
@@ -54,6 +55,7 @@ export default function ComparedCityDetails(props) {
               Cost of Coffee: 
               ${city.consumerPrices["COST-CAPPUCCINO"]}
               </h3>
+        </div>
       </div>
     </div>
   );
